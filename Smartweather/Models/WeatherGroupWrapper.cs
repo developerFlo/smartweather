@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Smartweather.Models
@@ -11,7 +12,9 @@ namespace Smartweather.Models
     class WeatherGroupWrapper:INotifyPropertyChanged
     {
         WeatherGroup _group;
-        char[] _icons = new char[] { '\xF113' };
+        char[] _icons = new char[0];
+        string _name;
+        Regex _regEx;
         bool _isChecked;
 
         public WeatherGroupWrapper(WeatherGroup group)
@@ -24,9 +27,19 @@ namespace Smartweather.Models
             get { return _group; }
         }
 
-        public string Icon
+        public Regex RegEx
         {
-            get { return _icons[0].ToString(); }
+            get { return _regEx; }
+        }
+
+        public char[] Icons
+        {
+            get { return _icons; }
+        }
+
+        public string Name
+        {
+            get { return _name; }
         }
 
         public bool IsChecked
@@ -44,9 +57,37 @@ namespace Smartweather.Models
 
         public static IEnumerable<WeatherGroupWrapper> GetAllGroups()
         {
+            var res = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
             var list = Enum.GetValues(typeof(WeatherGroup));
-            foreach(var e in list)
-                yield return new WeatherGroupWrapper((WeatherGroup)e);
+            foreach (var e in list)
+            {
+                WeatherGroupWrapper wg = new WeatherGroupWrapper((WeatherGroup)e);
+                wg._name = res.GetString(e.ToString());
+                switch ((WeatherGroup)e)
+                {
+                    case WeatherGroup.Sunny:
+                        wg._icons = new char[] { '\xF113' };
+                        wg._regEx = new Regex("^800$");
+                        break;
+                    case WeatherGroup.Cloudy:
+                        wg._icons = new char[] { '\xF106' };
+                        wg._regEx = new Regex("^80[1-4]$");
+                        break;
+                    case WeatherGroup.Rainy:
+                        wg._icons = new char[] { '\xF107', '\xF105' };
+                        wg._regEx = new Regex("^(5..)|(3..)$");
+                        break;
+                    case WeatherGroup.Snowy:
+                        wg._icons = new char[] { '\xF10B', '\xF105' };
+                        wg._regEx = new Regex("^6..$");
+                        break;
+                    case WeatherGroup.All:
+                        wg._icons = new char[] { '\xF105', '\xF10C', '\xF101' };
+                        wg._regEx = new Regex(".*");
+                        break;
+                }
+                yield return wg;
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -56,5 +97,14 @@ namespace Smartweather.Models
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
+    }
+
+    public enum WeatherGroup : uint
+    {
+        Sunny,
+        Rainy,
+        Cloudy,
+        Snowy,
+        All
     }
 }

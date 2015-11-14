@@ -18,7 +18,7 @@
             <TextBlock TextWrapping="Wrap" Text="{Binding IconString}" 
                        FontFamily="{StaticResource WeatherFont}" 
                        FontSize="200" 
-                       Foreground="{Binding Color, Converter={StaticResource ColorToBrushConverter}}"/>
+                       Foreground="{Binding Color, Converter={StaticResource ColorToBrushConverter}}" />
         </DataTemplate>
         <DataTemplate x:Key="DayWeatherItemTemplate">
             <Grid Background="SkyBlue">
@@ -26,9 +26,13 @@
                 <StackPanel Margin="50,50,50,150" HorizontalAlignment="Center">
                     <TextBlock x:Name="location" TextWrapping="Wrap" Text="{Binding Location.Name}" FontSize="16"/>
                     <TextBlock x:Name="day" TextWrapping="Wrap" Text="{Binding Day, Converter={StaticResource DateToStringConverter}}" FontSize="20" Margin="0,0,0,20"/>
-                    <ItemsControl x:Name="icon" ItemsSource="{Binding Icon.IconParts}" 
-                		ItemsPanel="{StaticResource WeatherIconItemsTemplate}" 
-                		ItemTemplate="{StaticResource WeatherIconTemplate}" Margin="0" HorizontalAlignment="Center"/>
+                    <Grid>
+                        <ItemsControl x:Name="icon" ItemsSource="{Binding Icon.IconParts}" 
+                		    ItemsPanel="{StaticResource WeatherIconItemsTemplate}" 
+                		    ItemTemplate="{StaticResource WeatherIconTemplate}" 
+                            Margin="0" 
+                            HorizontalAlignment="Center"/>
+                    </Grid>
                     <TextBlock x:Name="weatherDesc" TextWrapping="Wrap" Text="{Binding Description}" FontFamily="Segoe UI Light" FontSize="35"/>
                     <TextBlock x:Name="temp" TextWrapping="Wrap" Text="{Binding Temp, Converter={StaticResource DegreeToStringConverter}}" TextAlignment="Right" FontSize="20"/>
                 </StackPanel>

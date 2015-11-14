@@ -10,15 +10,6 @@ namespace Smartweather.Sevices
     public interface IWeatherService
     {
         Task<IList<DayWeather>> GetUpcomingWeatherForLocation(Location location);
-        Task<IList<DayWeather>> GetWeatherAroundPosition(Geoposition position, int maxCnt, WeatherGroup restrictToGroup);
-    }
-    
-    public enum WeatherGroup:uint
-    {
-        Sunny,
-        Rainy,
-        Cloudy,
-        Snowy,
-        All
+        Task<IList<DayWeather>> GetWeatherAroundPosition(Geoposition position, int maxCnt);
     }
 }

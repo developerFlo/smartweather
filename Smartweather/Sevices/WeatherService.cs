@@ -78,7 +78,7 @@ namespace Smartweather.Sevices
             return weather;
         }
 
-        public async Task<IList<DayWeather>> GetWeatherAroundPosition(Geoposition position, int maxCnt, WeatherGroup restrictToGroup)
+        public async Task<IList<DayWeather>> GetWeatherAroundPosition(Geoposition position, int maxCnt)
         {
             Uri serviceUrl = new Uri(BASE_URL, $"find?lat={position.lat}&lon={position.lon}&cnt={maxCnt}&units=metric&lang={GetLangForApi()}&appid={API_KEY}");
             Debug.WriteLine($"Start download weather from: {serviceUrl.AbsoluteUri}");
@@ -87,36 +87,31 @@ namespace Smartweather.Sevices
             JObject json = JObject.Parse(jsonStr);
             HashSet<string> incluedCityNames = new HashSet<string>();
             IList<DayWeather> weather = new List<DayWeather>();
-            string regexStr = GetWeatherIdRegExForWeatherGroup(restrictToGroup);
-            Regex regex = new Regex(regexStr);
+
             foreach (var city in json["list"])
             {
-                string weatherId = city["weather"][0]["id"].Value<int>().ToString();
-                if (regex.IsMatch(weatherId))
+                Location location = new Location()
                 {
-                    Location location = new Location()
+                    CityID = city["id"].Value<int?>(),
+                    Name = city["name"].Value<string>(),
+                    Position = new Geoposition()
                     {
-                        CityID = city["id"].Value<int?>(),
-                        Name = city["name"].Value<string>(),
-                        Position = new Geoposition()
-                        {
-                            lat = city["coord"]["lat"].Value<double>(),
-                            lon = city["coord"]["lon"].Value<double>()
-                        }
-                    };
-                    if (!incluedCityNames.Contains(location.Name))
-                    {
-                        weather.Add(new DayWeather()
-                        {
-                            Location = location,
-                            Day = FromIntervalSince1970(city["dt"].Value<double>()),
-                            Code = weatherId,
-                            Name = city["weather"][0]["main"].Value<string>(),
-                            Description = city["weather"][0]["description"].Value<string>(),
-                            Temp = city["main"]["temp"].Value<double>()
-                        });
-                        incluedCityNames.Add(location.Name);
+                        lat = city["coord"]["lat"].Value<double>(),
+                        lon = city["coord"]["lon"].Value<double>()
                     }
+                };
+                if (!incluedCityNames.Contains(location.Name))
+                {
+                    weather.Add(new DayWeather()
+                    {
+                        Location = location,
+                        Day = FromIntervalSince1970(city["dt"].Value<double>()),
+                        Code = city["weather"][0]["id"].Value<int>().ToString(),
+                        Name = city["weather"][0]["main"].Value<string>(),
+                        Description = city["weather"][0]["description"].Value<string>(),
+                        Temp = city["main"]["temp"].Value<double>()
+                    });
+                    incluedCityNames.Add(location.Name);
                 }
             }
 
@@ -127,23 +122,6 @@ namespace Smartweather.Sevices
         {
             DateTime d = UNIX_EPOCH + TimeSpan.FromSeconds(intervalSince1970);
             return new DateTime(d.Year, d.Month, d.Day);
-        }
-
-        private string GetWeatherIdRegExForWeatherGroup(WeatherGroup weatherGroup)
-        {
-            switch (weatherGroup)
-            {
-                case WeatherGroup.Sunny:
-                    return "^800$";
-                case WeatherGroup.Cloudy:
-                    return "^80[1-4]$";
-                case WeatherGroup.Rainy:
-                    return "^(5..)|(3..)$";
-                case WeatherGroup.Snowy:
-                    return "^6..$";
-                default:
-                    return ".*";
-            }
         }
     }
 }

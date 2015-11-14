@@ -6,6 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:Smartweather.ViewModels"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Media="using:Microsoft.Xaml.Interactions.Media"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -18,24 +20,74 @@
         <DataTemplate x:Key="WeatherGroupItem">
             <ToggleButton HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsChecked="{Binding IsChecked, Mode=TwoWay}">
                 <StackPanel VerticalAlignment="Center" Margin="5,0" >
-                    <TextBlock Text="{Binding Icon}" 
-                               FontFamily="{StaticResource WeatherFont}" 
-                               FontSize="48" 
-                               HorizontalAlignment="Center" />
-                    <TextBlock Text="{Binding Group}" 
+                    <ItemsControl ItemsSource="{Binding Icons}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Grid />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" 
+                                   FontFamily="{StaticResource WeatherFont}" 
+                                   FontSize="48" 
+                                   HorizontalAlignment="Center" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <TextBlock Text="{Binding Name}" 
                                FontSize="12" 
                                HorizontalAlignment="Center" />
                 </StackPanel>
             </ToggleButton>
         </DataTemplate>
         <DataTemplate x:Key="LocationDayWeatherItem">
-            <Grid>
+            <Grid x:Name="grid" RenderTransformOrigin="0.5,0.5" >
+                <Grid.Resources>
+                    <Storyboard x:Name="ItemEnterAnimation">
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="grid">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="50"/>
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                                <EasingDoubleKeyFrame.EasingFunction>
+                                    <QuinticEase EasingMode="EaseOut"/>
+                                </EasingDoubleKeyFrame.EasingFunction>
+                            </EasingDoubleKeyFrame>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </Grid.Resources>
+                <Grid.RenderTransform>
+                    <CompositeTransform TranslateX="0"/>
+                </Grid.RenderTransform>
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior>
+                        <Media:ControlStoryboardAction Storyboard="{StaticResource ItemEnterAnimation}"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock TextWrapping="Wrap" Text="{Binding Location.Name}" d:LayoutOverrides="Width, Height, TopMargin, BottomMargin" Margin="0,0,-2.667,0"/>
-                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Name}" d:LayoutOverrides="Height" Grid.Column="1"/>
+                <TextBlock 
+                    TextWrapping="Wrap" Text="{Binding Location.Name}"
+                    VerticalAlignment="Center"/>
+                <ItemsControl
+                    ItemsSource="{Binding Icon.IconParts}"
+                    VerticalAlignment="Center"
+                    Grid.Column="1">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Grid />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding IconString}" 
+                               FontFamily="{StaticResource WeatherFont}" 
+                               FontSize="30" 
+                               Foreground="{Binding Color, Converter={StaticResource ColorToBrushConverter}}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </Grid>
         </DataTemplate>
     </Page.Resources>
@@ -48,7 +100,16 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="listBox" ItemsSource="{Binding LocationsWeather}" ItemTemplate="{StaticResource LocationDayWeatherItem}"/>
+        <ListBox x:Name="listBox" 
+                 ItemsSource="{Binding LocationsWeather}" 
+                 ItemTemplate="{StaticResource LocationDayWeatherItem}"
+                 Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
         <ItemsControl Grid.Row="1" 
                       ItemsPanel="{StaticResource WeatherGroupItemsPanel}" 
                       ItemsSource="{Binding WeatherGroups}" 

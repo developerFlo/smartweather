@@ -81,27 +81,10 @@ namespace Smartweather.Test.Tests
                 lat = 47.453991,
                 lon = 15.27019
             };
-            var locations = await s.GetWeatherAroundPosition(position, 20, WeatherGroup.All);
+            var locations = await s.GetWeatherAroundPosition(position, 20);
 
             //14 = 20 lt. Parameter - doppelte Ortsnamen => Kann sich u.U. ändern
-            Assert.AreEqual(14, locations.Count);
-        }
-
-        [TestMethod]
-        public async Task TestGetWeatherAroundPositionCloudy()
-        {
-            //lat 47.453991 - long 15.27019: Kapfenberg
-            var position = new Geoposition()
-            {
-                lat = 47.453991,
-                lon = 15.27019
-            };
-            var locations = await s.GetWeatherAroundPosition(position, 20, WeatherGroup.Cloudy);
-
-            //Test kann je nach Wetter fehlschlagen
-            //14 = 20 lt. Parameter - doppelte Ortsnamen => Kann sich u.U. ändern
-            Assert.IsTrue(locations.Count < 14, "Es kann auch sein, dass es um Kapfenberg komplett bewölkt ist.");
-            Assert.IsTrue(locations.Count > 0, "Es kann auch sein, dass es um Kapfenberg nirgends bewölkt ist.");
+            Assert.AreEqual(20, locations.Count);
         }
     }
 }

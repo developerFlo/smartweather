@@ -77,5 +77,4 @@
         </Setter>
     </Style>
     <FontFamily x:Key="WeatherFont">\Resources\iconvault_forecastfont.ttf#iconvault</FontFamily>
-
 </ResourceDictionary>
