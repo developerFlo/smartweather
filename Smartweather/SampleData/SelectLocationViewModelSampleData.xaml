@@ -1,0 +1,179 @@
+﻿<ViewModels:SelectLocationViewModel xmlns:ViewModels="using:Smartweather.ViewModels" xmlns:Models="using:Smartweather.Models" xmlns:System="using:System">
+	<ViewModels:SelectLocationViewModel.CurrentWeatherGroup>
+		<Models:WeatherGroupWrapper Group="Cloudy"/>
+	</ViewModels:SelectLocationViewModel.CurrentWeatherGroup>
+	<ViewModels:SelectLocationViewModel.Locations>
+		<Models:LocationWithSource>
+			<Models:LocationWithSource.Location>
+				<Models:Location Name="Class curabitur aliquam aenean" Country="AT">
+                    <Models:Location.Position>
+                        <Models:Geoposition/>
+                    </Models:Location.Position>
+                </Models:Location>
+			</Models:LocationWithSource.Location>
+			<Models:LocationWithSource.Source>
+				<Models:LocationSource>
+					<Models:LocationSource.Icon>
+                        <System:Char>&#xE81D;</System:Char>
+                    </Models:LocationSource.Icon>
+				</Models:LocationSource>
+			</Models:LocationWithSource.Source>
+		</Models:LocationWithSource>
+		<Models:LocationWithSource>
+			<Models:LocationWithSource.Location>
+                <Models:Location Name="Integer phasellus consequat cras maecenas" Country="AT">
+					<Models:Location.Position>
+						<Models:Geoposition/>
+					</Models:Location.Position>
+				</Models:Location>
+			</Models:LocationWithSource.Location>
+			<Models:LocationWithSource.Source>
+				<Models:LocationSource>
+                    <Models:LocationSource.Icon>
+                        <System:Char>&#xE734;</System:Char>
+                    </Models:LocationSource.Icon>
+				</Models:LocationSource>
+			</Models:LocationWithSource.Source>
+		</Models:LocationWithSource>
+		<Models:LocationWithSource>
+			<Models:LocationWithSource.Location>
+                <Models:Location Name="Curae duis nam mauris sed" Country="AT">
+					<Models:Location.Position>
+						<Models:Geoposition/>
+					</Models:Location.Position>
+				</Models:Location>
+			</Models:LocationWithSource.Location>
+			<Models:LocationWithSource.Source>
+				<Models:LocationSource>
+                    <Models:LocationSource.Icon>
+                        <System:Char>&#xE734;</System:Char>
+                    </Models:LocationSource.Icon>
+				</Models:LocationSource>
+			</Models:LocationWithSource.Source>
+		</Models:LocationWithSource>
+        <Models:LocationWithSource>
+            <Models:LocationWithSource.Location>
+                <Models:Location Name="Accumsan vivamus" Country="IT">
+                    <Models:Location.Position>
+                        <Models:Geoposition/>
+                    </Models:Location.Position>
+                </Models:Location>
+            </Models:LocationWithSource.Location>
+            <Models:LocationWithSource.Source>
+                <Models:LocationSource>
+                    <Models:LocationSource.Icon>
+                        <System:Char>&#xE734;</System:Char>
+                    </Models:LocationSource.Icon>
+                </Models:LocationSource>
+            </Models:LocationWithSource.Source>
+        </Models:LocationWithSource>
+        <Models:LocationWithSource>
+            <Models:LocationWithSource.Location>
+                <Models:Location Name="Bibendum congue eget" Country="EN">
+                    <Models:Location.Position>
+                        <Models:Geoposition/>
+                    </Models:Location.Position>
+                </Models:Location>
+            </Models:LocationWithSource.Location>
+            <Models:LocationWithSource.Source>
+                <Models:LocationSource>
+                    <Models:LocationSource.Icon>
+                        <System:Char>&#xE734;</System:Char>
+                    </Models:LocationSource.Icon>
+                </Models:LocationSource>
+            </Models:LocationWithSource.Source>
+        </Models:LocationWithSource>
+        <Models:LocationWithSource>
+            <Models:LocationWithSource.Location>
+                <Models:Location Name="Parturient dictumst fusce" Country="FR">
+                    <Models:Location.Position>
+                        <Models:Geoposition/>
+                    </Models:Location.Position>
+                </Models:Location>
+            </Models:LocationWithSource.Location>
+            <Models:LocationWithSource.Source>
+                <Models:LocationSource>
+                    <Models:LocationSource.Icon>
+                        <System:Char>&#xE734;</System:Char>
+                    </Models:LocationSource.Icon>
+                </Models:LocationSource>
+            </Models:LocationWithSource.Source>
+        </Models:LocationWithSource>
+        <Models:LocationWithSource>
+			<Models:LocationWithSource.Location>
+                <Models:Location Name="Nunc dis vestibulum est amet" Country="SLO">
+					<Models:Location.Position>
+						<Models:Geoposition/>
+					</Models:Location.Position>
+				</Models:Location>
+			</Models:LocationWithSource.Location>
+			<Models:LocationWithSource.Source>
+				<Models:LocationSource>
+                    <Models:LocationSource.Icon>
+                        <System:Char>&#xE787;</System:Char>
+                    </Models:LocationSource.Icon>
+				</Models:LocationSource>
+			</Models:LocationWithSource.Source>
+		</Models:LocationWithSource>
+		<Models:LocationWithSource>
+			<Models:LocationWithSource.Location>
+                <Models:Location Name="Donec nullam etiam" Country="AT">
+					<Models:Location.Position>
+						<Models:Geoposition/>
+					</Models:Location.Position>
+				</Models:Location>
+			</Models:LocationWithSource.Location>
+			<Models:LocationWithSource.Source>
+				<Models:LocationSource>
+                    <Models:LocationSource.Icon>
+                        <System:Char>&#xE787;</System:Char>
+                    </Models:LocationSource.Icon>
+				</Models:LocationSource>
+			</Models:LocationWithSource.Source>
+		</Models:LocationWithSource>
+		<Models:LocationWithSource>
+			<Models:LocationWithSource.Location>
+				<Models:Location Name="Adipiscing convallis aptent quisque ante">
+					<Models:Location.Position>
+						<Models:Geoposition/>
+					</Models:Location.Position>
+				</Models:Location>
+			</Models:LocationWithSource.Location>
+			<Models:LocationWithSource.Source>
+				<Models:LocationSource>
+                    <Models:LocationSource.Icon>
+                        <System:Char>&#xE787;</System:Char>
+                    </Models:LocationSource.Icon>
+				</Models:LocationSource>
+			</Models:LocationWithSource.Source>
+		</Models:LocationWithSource>
+        <Models:LocationWithSource>
+            <Models:LocationWithSource.Location>
+                <Models:Location Name="Praesent arcu diam auctor">
+                    <Models:Location.Position>
+                        <Models:Geoposition/>
+                    </Models:Location.Position>
+                </Models:Location>
+            </Models:LocationWithSource.Location>
+            <Models:LocationWithSource.Source>
+                <Models:LocationSource>
+                    <Models:LocationSource.Icon>
+                        <System:Char>&#xE787;</System:Char>
+                    </Models:LocationSource.Icon>
+                </Models:LocationSource>
+            </Models:LocationWithSource.Source>
+        </Models:LocationWithSource>
+    </ViewModels:SelectLocationViewModel.Locations>
+	<ViewModels:SelectLocationViewModel.WeatherGroups>
+		<Models:WeatherGroupWrapper Group="Cloudy"/>
+		<Models:WeatherGroupWrapper Group="Sunny"/>
+		<Models:WeatherGroupWrapper Group="Cloudy"/>
+		<Models:WeatherGroupWrapper Group="All"/>
+		<Models:WeatherGroupWrapper Group="Cloudy"/>
+		<Models:WeatherGroupWrapper Group="Cloudy"/>
+		<Models:WeatherGroupWrapper Group="Sunny"/>
+		<Models:WeatherGroupWrapper Group="Sunny"/>
+		<Models:WeatherGroupWrapper Group="Rainy"/>
+		<Models:WeatherGroupWrapper Group="Snowy"/>
+	</ViewModels:SelectLocationViewModel.WeatherGroups>
+</ViewModels:SelectLocationViewModel>

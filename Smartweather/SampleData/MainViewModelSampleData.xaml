@@ -1,0 +1,61 @@
+﻿<ViewModels:MainViewModel xmlns:ViewModels="using:Smartweather.ViewModels" xmlns:Models="using:Smartweather.Models">
+	<ViewModels:MainViewModel.CurrentDayWeather>
+		<Models:DayWeather Description="Erat vel" Day="11/10/2015 19:27:09" Name="Enim parturient interdum vestibulum" Temp="743.03" Code="800">
+			<Models:DayWeather.Location>
+				<Models:Location/>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+	</ViewModels:MainViewModel.CurrentDayWeather>
+	<ViewModels:MainViewModel.DaysWeather>
+		<Models:DayWeather Description="Curabitur nam" Day="11/10/2015 19:27:09" Name="Vestibulum cras adipiscing class parturient" Temp="997.33" Code="200">
+			<Models:DayWeather.Location>
+				<Models:Location/>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Aenean accumsan aliquam" Day="11/10/2015 19:27:09" Name="Duis maecenas nunc praesent sed" Temp="282.74" Code="300">
+			<Models:DayWeather.Location>
+				<Models:Location/>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Dictumst amet nullam hac integer" Day="11/10/2015 19:27:09" Name="Dis mauris vestibulum est bibendum" Temp="914.07" Code="400">
+			<Models:DayWeather.Location>
+				<Models:Location/>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Aptent mus" Day="11/10/2015 19:27:09" Name="Leo eleifend" Temp="383.52">
+			<Models:DayWeather.Location>
+				<Models:Location/>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Congue quisque" Day="11/10/2015 19:27:09" Name="Vestibulum curae nec auctor" Temp="987.85">
+			<Models:DayWeather.Location>
+				<Models:Location/>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Non per" Day="11/10/2015 19:27:09" Name="Vivamus cursus aliquam phasellus" Temp="823.67">
+			<Models:DayWeather.Location>
+				<Models:Location/>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Dictum arcu diam facilisi" Day="11/10/2015 19:27:09" Name="Adipiscing ante sed" Temp="204.39">
+			<Models:DayWeather.Location>
+				<Models:Location/>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Lectus convallis" Day="11/10/2015 19:27:09" Name="Parturient consequat aliquet eget" Temp="292.27">
+			<Models:DayWeather.Location>
+				<Models:Location/>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Facilisis faucibus vestibulum sem habitant" Day="11/10/2015 19:27:09" Name="Vestibulum dignissim elementum" Temp="675.81">
+			<Models:DayWeather.Location>
+				<Models:Location/>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Adipiscing blandit commodo sit" Day="11/10/2015 19:27:09" Name="Elit inceptos" Temp="245.53">
+			<Models:DayWeather.Location>
+				<Models:Location/>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+	</ViewModels:MainViewModel.DaysWeather>
+</ViewModels:MainViewModel>

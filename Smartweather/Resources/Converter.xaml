@@ -1,0 +1,9 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="using:Smartweather.Common"
+    xmlns:local="using:Smartweather.Resources">
+    <c:ColorToBrushConverter x:Key="ColorToBrushConverter" />
+    <c:DateToStringConverter x:Key="DateToStringConverter" />
+    <c:DegreeToStringConverter x:Key="DegreeToStringConverter" />
+</ResourceDictionary>

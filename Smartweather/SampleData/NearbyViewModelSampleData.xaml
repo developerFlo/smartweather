@@ -1,0 +1,104 @@
+﻿<ViewModels:NearbyViewModel xmlns:ViewModels="using:Smartweather.ViewModels" xmlns:Models="using:Smartweather.Models">
+	<ViewModels:NearbyViewModel.CurrentWeatherGroup>
+		<Models:WeatherGroupWrapper Group="Snowy"/>
+	</ViewModels:NearbyViewModel.CurrentWeatherGroup>
+	<ViewModels:NearbyViewModel.LocationsWeather>
+		<Models:DayWeather Description="Phasellus vestibulum" Day="11/13/2015 13:58:16" IsCurrent="True" Name="Aliquam maecenas mauris nullam curabitur" Temp="966.67">
+			<Models:DayWeather.Location>
+				<Models:Location Country="Sed aenean" Name="Vestibulum nam adipiscing cras parturient">
+					<Models:Location.Position>
+						<Models:Geoposition/>
+					</Models:Location.Position>
+				</Models:Location>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Quisque cursus vivamus dictum" Day="11/13/2015 13:58:16" IsCurrent="False" Name="Congue class integer" Temp="142.07">
+			<Models:DayWeather.Location>
+				<Models:Location Country="Parturient praesent" Name="Aptent auctor vestibulum adipiscing dis">
+					<Models:Location.Position>
+						<Models:Geoposition/>
+					</Models:Location.Position>
+				</Models:Location>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Libero dignissim donec aliquet blandit" Day="11/13/2015 13:58:16" IsCurrent="True" Name="Bibendum convallis lectus" Temp="926.99">
+			<Models:DayWeather.Location>
+				<Models:Location Country="Est accumsan hac" Name="Consequat vestibulum aliquam curae">
+					<Models:Location.Position>
+						<Models:Geoposition/>
+					</Models:Location.Position>
+				</Models:Location>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Eleifend morbi facilisi" Day="11/13/2015 13:58:16" IsCurrent="False" Name="Habitasse lorem litora" Temp="276.37">
+			<Models:DayWeather.Location>
+				<Models:Location Country="Fermentum fringilla ligula duis fusce" Name="Etiam elementum commodo dictumst facilisis">
+					<Models:Location.Position>
+						<Models:Geoposition/>
+					</Models:Location.Position>
+				</Models:Location>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Luctus magnis ante dapibus mus" Day="11/13/2015 13:58:16" IsCurrent="True" Name="Imperdiet inceptos" Temp="971.75">
+			<Models:DayWeather.Location>
+				<Models:Location Country="Vestibulum nunc hendrerit amet himenaeos" Name="Conubia cubilia leo faucibus habitant">
+					<Models:Location.Position>
+						<Models:Geoposition/>
+					</Models:Location.Position>
+				</Models:Location>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Vestibulum proin augue nascetur" Day="11/13/2015 13:58:16" IsCurrent="False" Name="Nec mattis nulla" Temp="148.26">
+			<Models:DayWeather.Location>
+				<Models:Location Country="Interdum lobortis egestas" Name="Adipiscing parturient malesuada vestibulum">
+					<Models:Location.Position>
+						<Models:Geoposition/>
+					</Models:Location.Position>
+				</Models:Location>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Euismod non per" Day="11/13/2015 13:58:16" IsCurrent="True" Name="Porttitor mollis pharetra tincidunt" Temp="537.02">
+			<Models:DayWeather.Location>
+				<Models:Location Country="Dolor fames vestibulum" Name="Adipiscing mauris penatibus parturient">
+					<Models:Location.Position>
+						<Models:Geoposition/>
+					</Models:Location.Position>
+				</Models:Location>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Felis gravida enim" Day="11/13/2015 13:58:16" IsCurrent="False" Name="Venenatis vulputate nostra pulvinar" Temp="570.96">
+			<Models:DayWeather.Location>
+				<Models:Location Country="Elit montes tristique feugiat ultricies" Name="Arcu sed placerat diam eget">
+					<Models:Location.Position>
+						<Models:Geoposition/>
+					</Models:Location.Position>
+				</Models:Location>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Nibh nisi nisl natoque" Day="11/13/2015 13:58:16" IsCurrent="True" Name="Laoreet consequat" Temp="693.83">
+			<Models:DayWeather.Location>
+				<Models:Location Country="Erat phasellus eros lacinia" Name="Iaculis curabitur">
+					<Models:Location.Position>
+						<Models:Geoposition/>
+					</Models:Location.Position>
+				</Models:Location>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+		<Models:DayWeather Description="Orci pede dignissim nam sed" Day="11/13/2015 13:58:16" IsCurrent="False" Name="Convallis vel odio" Temp="543.54">
+			<Models:DayWeather.Location>
+				<Models:Location Country="Vestibulum ipsum potenti" Name="Sem sit nunc sagittis posuere">
+					<Models:Location.Position>
+						<Models:Geoposition/>
+					</Models:Location.Position>
+				</Models:Location>
+			</Models:DayWeather.Location>
+		</Models:DayWeather>
+	</ViewModels:NearbyViewModel.LocationsWeather>
+	<ViewModels:NearbyViewModel.WeatherGroups>
+		<Models:WeatherGroupWrapper Group="Rainy"/>
+		<Models:WeatherGroupWrapper Group="Cloudy"/>
+		<Models:WeatherGroupWrapper Group="Snowy"/>
+		<Models:WeatherGroupWrapper Group="Sunny"/>
+		<Models:WeatherGroupWrapper Group="All"/>
+	</ViewModels:NearbyViewModel.WeatherGroups>
+</ViewModels:NearbyViewModel>
